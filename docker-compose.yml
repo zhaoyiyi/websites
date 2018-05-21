@@ -1,0 +1,16 @@
+version: '3'
+services:
+  nginx:
+    image: nginx
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d
+    command: nginx -g 'daemon off;' -c /etc/nginx/nginx.conf
+    ports:
+      - 80:80
+    links:
+      - draw-something:draw-something
+      - ttc-backend:ttc-backend
+  ttc-backend:
+    image: zhaoyim/ttc-backend
+  draw-something:
+    image: zhaoyim/draw-something
