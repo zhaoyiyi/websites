@@ -9,8 +9,9 @@ services:
       - 80:80
   ttc-backend:
     image: zhaoyim/ttc-backend
+    ports:
+      - 3000:3000
   draw-something:
     image: zhaoyim/draw-something
-networks:
-  default:
-    driver: custom-driver-1
+    ports:
+      - 3001:3001
